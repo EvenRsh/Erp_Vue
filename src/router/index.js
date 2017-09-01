@@ -10,12 +10,13 @@ const _import = require('./_import_' + process.env.NODE_ENV);
 import Layout from "@/views/layout/Layout"
 
 Vue.use(Router);
-const routesMap = [
+export const routesMap = [
   {
     path: '/',
     name: '首页',
     redirect:"management",
-    component: Layout
+    component: Layout,
+    noDropdown:true
   },
   {
     path:"/management",
@@ -32,9 +33,57 @@ const routesMap = [
         path:"goodsCategory",
         component: _import('management/goodsCategory'),
         name:"商品分类"
-      }
+      },
+      {
+        path:"goodsInfo",
+        component: _import('management/goodsInfo'),
+        name:"商品信息"
+      },
+      {
+        path:"warehouse",
+        component: _import('management/warehouse'),
+        name:"仓库管理"
+      },
+      {
+        path:"client",
+        component: _import('management/client'),
+        name:"客户管理"
+      },
     ]
-  }
+  },
+  {
+    path:"/procurement",
+    name:"采购管理",
+    component: Layout,
+    redirect:"procurement/procOrder",
+    children:[
+      {
+        path:"procOrder",
+        component: _import('procurement/procOrder'),
+        name:"采购订单"
+      },
+      // {
+      //   path:"goodsCategory",
+      //   component: _import('procurement/goodsCategory'),
+      //   name:"商品分类"
+      // },
+      // {
+      //   path:"goodsInfo",
+      //   component: _import('procurement/goodsInfo'),
+      //   name:"商品信息"
+      // },
+      // {
+      //   path:"warehouse",
+      //   component: _import('procurement/warehouse'),
+      //   name:"仓库管理"
+      // },
+      // {
+      //   path:"client",
+      //   component: _import('procurement/client'),
+      //   name:"客户管理"
+      // },
+    ]
+  },
 ]
 
 export default new Router({

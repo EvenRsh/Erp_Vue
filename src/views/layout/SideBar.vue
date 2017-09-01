@@ -1,33 +1,34 @@
 <template>
-    <div class="sidebar-wapper">
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-      </ul>
-    </div>
+  <el-menu mode="vertical" unique-opened :default-active="$route.path">
+    <sidebar-item :routes="permission_routers"></sidebar-item>
+  </el-menu>
 </template>
 
 <script lang="">
-    export default {
-        name: '',
-        data() {
-            return {}
-        },
-        components: {},
-        methods: {},
-        mounted() {
+  import {routesMap} from '@/router'
+  import SidebarItem from './SidebarItem'
+  export default {
+    name: '',
+    data() {
+      return {
+        permission_routers: routesMap
+      }
+    },
+    components: {
+      SidebarItem
+    },
+    methods: {},
+    mounted() {
 
-        },
-        created() {
-
-        },
-    }
+    },
+    created() {
+//      console.log(this.permission_routers)
+    },
+  }
 </script>
 
 <style lang="">
-  .sidebar-wapper{
-    width: 220px;
+  a {
+    text-decoration: none;
   }
 </style>

@@ -1,20 +1,16 @@
 <template>
     <div>
-      <navbar></navbar>
-      <router-view></router-view>
+      {{$route.path}}
     </div>
 </template>
 
 <script lang="">
-  import Navbar from "./Navbar"
-  export default {
+    export default {
         name: '',
         data() {
             return {}
         },
-        components: {
-          Navbar
-        },
+        components: {},
         methods: {},
         mounted() {
 
