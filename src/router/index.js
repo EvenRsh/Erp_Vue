@@ -62,26 +62,54 @@ export const routesMap = [
         component: _import('procurement/procOrder'),
         name:"采购订单"
       },
-      // {
-      //   path:"goodsCategory",
-      //   component: _import('procurement/goodsCategory'),
-      //   name:"商品分类"
-      // },
-      // {
-      //   path:"goodsInfo",
-      //   component: _import('procurement/goodsInfo'),
-      //   name:"商品信息"
-      // },
-      // {
-      //   path:"warehouse",
-      //   component: _import('procurement/warehouse'),
-      //   name:"仓库管理"
-      // },
-      // {
-      //   path:"client",
-      //   component: _import('procurement/client'),
-      //   name:"客户管理"
-      // },
+      {
+        path:"purOrderstorage",
+        component: _import('procurement/purOrderstorage'),
+        name:"采购订单入库"
+      },
+      {
+        path:"outStorage",
+        component: _import('procurement/outStorage'),
+        name:"委外入库"
+      },
+      {
+        path:"purpayOrder",
+        component: _import('procurement/purpayOrder'),
+        name:"采购付款单"
+      },
+      {
+        path:"purReturn",
+        component: _import('procurement/purReturn'),
+        name:"采购退货"
+      },
+      {
+        path:"purStatement",
+        component: _import('procurement/purStatement'),
+        name:"采购对账单"
+      },
+    ]
+  },
+  {
+    path:"/stockcontrol",
+    name:"入库管理",
+    component: Layout,
+    redirect:"stockcontrol/storage",
+    children:[
+      {
+        path:"storage",
+        component: _import('stockcontrol/storage'),
+        name:"入库"
+      },
+      {
+        path:"stockTransfer",
+        component: _import('stockcontrol/stockTransfer'),
+        name:"库存调拨"
+      },
+      {
+        path:"stockRemoval",
+        component: _import('stockcontrol/stockRemoval'),
+        name:"出库"
+      },
     ]
   },
 ]
