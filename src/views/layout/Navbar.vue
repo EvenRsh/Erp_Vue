@@ -13,7 +13,6 @@
         :name="tag.name"
         :key="tag.path"
       >
-        <!--<span slot="label">{{tag.name}}</span>-->
         <template slot="label"  >
           <router-link  :to="tag.path" :key="tag.path" >
             <span>{{tag.name}}</span>

@@ -17,6 +17,7 @@
     "babel-polyfill": "^6.26.0",
     "element-ui": "^1.4.3",
     "mock": "^0.1.1",
+    "mockjs": "^1.0.1-beta3",
     "vue": "^2.3.3",
     "vue-axios": "^2.0.2",
     "vue-i18n": "^5.0.3",

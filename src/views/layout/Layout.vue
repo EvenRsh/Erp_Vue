@@ -67,9 +67,11 @@
     height:100%;
     position: fixed;
     top: 0px;
-    left:0px
+    left:0px;
+    z-index: 2;
   }
   .appMain-warpper{
+    min-width:960px;
     margin-left:200px;
   }
 </style>

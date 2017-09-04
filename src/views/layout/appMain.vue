@@ -1,35 +1,38 @@
 <template>
-    <div class="header_top">
-      <el-row>
-        <el-col :span="24"><div class="grid-content bg-purple-dark"><navbar></navbar></div></el-col>
-      </el-row>
-
+  <div class="header_top">
+    <el-row>
+      <el-col :span="24">
+        <div class="grid-content bg-purple-dark">
+          <navbar></navbar>
+        </div>
+      </el-col>
+    </el-row>
       <router-view></router-view>
-    </div>
+  </div>
 </template>
 
 <script lang="">
   import Navbar from "./Navbar"
   export default {
-        name: '',
-        data() {
-            return {}
-        },
-        components: {
-          Navbar
-        },
-        methods: {},
-        mounted() {
+    name: '',
+    data() {
+      return {}
+    },
+    components: {
+      Navbar
+    },
+    methods: {},
+    mounted() {
 
-        },
-        created() {
+    },
+    created() {
 
-        },
-    }
+    },
+  }
 </script>
 
 <style lang="">
-  .header_top{
+  .header_top {
 
   }
 </style>
