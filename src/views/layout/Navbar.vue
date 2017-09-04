@@ -7,6 +7,7 @@
     <!--</el-menu>-->
 
     <el-tabs  type="card" closable v-model="$route.name" @tab-remove="closeViewTabs" >
+
       <el-tab-pane
         v-for="tag in Array.from(visitedViews.slice(-6))"
         :name="tag.name"
@@ -15,7 +16,6 @@
         <!--<span slot="label">{{tag.name}}</span>-->
         <template slot="label"  >
           <router-link  :to="tag.path" :key="tag.path" >
-          <!--<el-tag :closable="true" :type="isActive(tag.path)?'primary':''"  @close='closeViewTabs(tag,$event)'>{{tag.name}}</el-tag>-->
             <span>{{tag.name}}</span>
           </router-link>
         </template>
@@ -79,6 +79,7 @@
       }
     },
     mounted() {
+      this.addVisitedViews(this.generateRoute())
     },
     created() {
 

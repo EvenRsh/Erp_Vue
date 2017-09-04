@@ -9,6 +9,18 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
 Vue.use(ElementUI);
 
+//i18n
+// import VueI18n from 'vue-i18n'
+// import enLocale from 'element-ui/lib/locale/lang/en'
+// import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
+// Vue.use(VueI18n)
+//
+// Vue.config.lang = 'zh-cn'
+// Vue.locale('zh-cn', zhLocale)
+// Vue.locale('en', enLocale)
+
+
+
 //ajax
 import axios from 'axios';
 import VueAxios from 'vue-axios';

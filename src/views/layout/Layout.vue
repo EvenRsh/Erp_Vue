@@ -18,14 +18,16 @@
     name: '',
     data() {
       return {
-        msg: "1323"
+        msg: "1323",
       }
     },
     components: {
       SideBar,
       appMain
     },
-    methods: {},
+    methods: {
+
+    },
     mounted() {
 
     },
