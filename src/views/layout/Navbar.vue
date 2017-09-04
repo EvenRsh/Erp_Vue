@@ -1,19 +1,19 @@
 <template>
-  <div>
+  <div style="width: 100%">
     <!--<el-menu class="navbar" mode="horizontal">-->
     <!--<router-link v-for="tag in Array.from(visitedViews.slice(-6))" :to="tag.path" :key="tag.path">-->
     <!--<el-tag :closable="true" :type="isActive(tag.path)?'primary':''"  @close='closeViewTabs(tag,$event)'>{{tag.name}}</el-tag>-->
     <!--</router-link>-->
     <!--</el-menu>-->
 
-    <el-tabs type="card" closable v-model="$route.name" @tab-remove="closeViewTabs" >
+    <el-tabs  type="card" closable v-model="$route.name" @tab-remove="closeViewTabs" >
       <el-tab-pane
         v-for="tag in Array.from(visitedViews.slice(-6))"
         :name="tag.name"
         :key="tag.path"
       >
         <!--<span slot="label">{{tag.name}}</span>-->
-        <template slot="label" >
+        <template slot="label"  >
           <router-link  :to="tag.path" :key="tag.path" >
           <!--<el-tag :closable="true" :type="isActive(tag.path)?'primary':''"  @close='closeViewTabs(tag,$event)'>{{tag.name}}</el-tag>-->
             <span>{{tag.name}}</span>

@@ -1,5 +1,6 @@
 <template>
     <div class="menu-wrapper">
+      <div style="background-color: #ff9827; height: 50px;text-align: center;line-height: 50px;">ERP</div>
       <template v-for="item in routes">
         <el-submenu :index="item.path" v-if="!item.noDropdown">
           <template slot="title">{{item.name}}</template>

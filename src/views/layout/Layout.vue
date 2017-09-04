@@ -6,7 +6,6 @@
     <!--</el-row>-->
     <SideBar class="sideBar-warpper"></SideBar>
     <div class="appMain-warpper">
-
       <appMain></appMain>
     </div>
   </div>
@@ -39,6 +38,7 @@
 <style lang="scss" scoped>
   .layout-warapper{
     position: relative;
+    width: 100%;
   }
   .header {
     background-color: #CA0011;
@@ -61,11 +61,13 @@
   }
   .sideBar-warpper{
     width: 200px;
-    min-height: 400px;
+    /*min-height: 400px;*/
+    height:100%;
+    position: fixed;
+    top: 0px;
+    left:0px
   }
   .appMain-warpper{
-    position: absolute;
-    top: 0px;
-    left:200px
+    margin-left:200px;
   }
 </style>
