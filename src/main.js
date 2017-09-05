@@ -26,6 +26,11 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 Vue.use(VueAxios, axios);
 
+
+// 注册组件
+import headerTop from './components/headerTop.vue'
+Vue.component('headerTop',headerTop)
+
 //vuex
 
 import store from "./store"

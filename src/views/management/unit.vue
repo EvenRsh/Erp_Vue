@@ -1,11 +1,12 @@
 <template>
     <div>
+      <!--<header-top ></header-top>-->
       <el-row class="headerTop">
         <el-col  :span="20">
           <div class="grid-content bg-purple-dark"><span style="display: inline-block;margin-left: 20px;">{{$route.name}}</span></div>
         </el-col>
         <el-col :span="4">
-          <div class="grid-content bg-purple-dark"><el-button @click="dialogFormVisible = true">新增</el-button></div>
+          <div class="grid-content bg-purple-dark"><el-button type="primary" @click="dialogFormVisible = true">新增</el-button></div>
         </el-col>
         <!--弹窗-->
         <el-dialog  title="计量单位" :visible.sync="dialogFormVisible" size="tiny"
@@ -24,6 +25,7 @@
           </div>
         </el-dialog>
       </el-row>
+
       <el-row class="" style="margin-top: 10px;">
         <el-col  :span="24">
           <div class="grid-content bg-purple-dark">
@@ -129,18 +131,19 @@
     }
 </script>
 
-<style lang="">
-  .headerTop{
-    height: 40px;
-    line-height:40px;
-    border: 1px #ccc solid;
-    border-radius: 5px;
-  }
-  .el-dialog{
-    width: 500px;
-  }
-  .el-dialog__footer {
-    padding: 10px 20px 15px;
-    text-align: center;
-  }
+<style lang="scss">
+  @import "src/style/index.scss";
+  /*.headerTop{*/
+    /*height: 60px;*/
+    /*line-height:60px;*/
+    /*border: 1px #ccc solid;*/
+    /*border-radius: 5px;*/
+  /*}*/
+  /*.el-dialog{*/
+    /*width: 500px;*/
+  /*}*/
+  /*.el-dialog__footer {*/
+    /*padding: 10px 20px 15px;*/
+    /*text-align: center;*/
+  /*}*/
 </style>
