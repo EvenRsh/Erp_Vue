@@ -11,6 +11,12 @@
         </div>
       </el-col>
     </el-row>
+    <el-row class="" style="margin-top: 10px">
+      <el-col :span="24">
+        <div class="grid-content bg-purple-dark">
+        </div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 

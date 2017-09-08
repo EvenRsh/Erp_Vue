@@ -74,57 +74,122 @@
       </el-col>
     </el-row>
     <!--1级弹窗-->
-    <el-dialog title="商品信息" :visible.sync="dialogFormVisible" size="large"
+    <el-dialog :title="$route.name" :visible.sync="dialogFormVisible" size="large"
     >
       <el-row>
         <el-col :span="12" style="padding-right: 3px">
           <div class="grid-content bg-purple">
-            <p>商品编号</p>
-            <el-input
-              placeholder="请选择日期"
-              icon="close"
-              v-model="input2"
-              :on-icon-click="handleIconClick">
-            </el-input>
-            <p>商品名称</p>
-            <el-input v-model="input2" placeholder=""></el-input>
-            <p>商品分类</p>
-            <el-input
-              placeholder=""
-              icon="plus"
-              v-model="input2"
-              :on-icon-click="handleIconClick">
-            </el-input>
-            <p>计算单位</p>
-            <el-select v-model="value" placeholder="选择单位">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-              </el-option>
-            </el-select>
-            <p>采购单价</p>
-            <el-input v-model="input2" placeholder=""></el-input>
+            <el-form :model="form">
+              <el-form-item label="商品编号" :label-width="formLabelWidth">
+                <el-input
+                  placeholder=""
+                  icon="close"
+                  v-model="input2"
+                  :on-icon-click="handleIconClick">
+                </el-input>
+              </el-form-item>
+            </el-form>
+            <el-form :model="form">
+              <el-form-item label="商品名称" :label-width="formLabelWidth">
+                <el-input v-model="input2" placeholder=""></el-input>
+              </el-form-item>
+            </el-form>
+            <el-form :model="form">
+              <el-form-item label="商品分类" :label-width="formLabelWidth">
+                <el-input
+                  placeholder=""
+                  icon="plus"
+                  v-model="input2"
+                  :on-icon-click="handleIconClick">
+                </el-input>
+              </el-form-item>
+            </el-form>
+            <el-form :model="form">
+              <el-form-item label="计算单位" :label-width="formLabelWidth">
+                <el-select v-model="value" placeholder="选择单位">
+                  <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
+              </el-form-item>
+            </el-form>
+            <el-form :model="form">
+              <el-form-item label="采购单价" :label-width="formLabelWidth">
+                <el-input v-model="input2" placeholder=""></el-input>
+              </el-form-item>
+            </el-form>
+            <!--<p>商品名称</p>-->
+            <!--<el-input v-model="input2" placeholder=""></el-input>-->
+            <!--<p>商品分类</p>-->
+            <!--<el-input-->
+              <!--placeholder=""-->
+              <!--icon="plus"-->
+              <!--v-model="input2"-->
+              <!--:on-icon-click="handleIconClick">-->
+            <!--</el-input>-->
+            <!--<p>计算单位</p>-->
+            <!--<el-select v-model="value" placeholder="选择单位">-->
+              <!--<el-option-->
+                <!--v-for="item in options"-->
+                <!--:key="item.value"-->
+                <!--:label="item.label"-->
+                <!--:value="item.value">-->
+              <!--</el-option>-->
+            <!--</el-select>-->
+            <!--<p>采购单价</p>-->
+            <!--<el-input v-model="input2" placeholder=""></el-input>-->
           </div>
         </el-col>
         <el-col :span="12" style="padding-left: 3px">
           <div class="grid-content bg-purple">
-            <p>条码</p>
-            <el-input v-model="input2" placeholder=""></el-input>
-            <p>规格</p>
-            <el-input v-model="input2" placeholder=""></el-input>
-            <p>品牌</p>
-            <el-input v-model="input2" placeholder=""></el-input>
-            <p>供应商</p>
-            <el-input
-              placeholder=""
-              icon="plus"
-              v-model="input2"
-              :on-icon-click="handleIconClick">
-            </el-input>
-            <p>销售单价</p>
-            <el-input v-model="input2" placeholder=""></el-input>
+            <el-form :model="form">
+              <el-form-item label="条码" :label-width="formLabelWidth">
+                <el-input v-model="input2" placeholder=""></el-input>
+              </el-form-item>
+            </el-form>
+            <el-form :model="form">
+              <el-form-item label="规格" :label-width="formLabelWidth">
+                <el-input v-model="input2" placeholder=""></el-input>
+              </el-form-item>
+            </el-form>
+            <el-form :model="form">
+              <el-form-item label="品牌" :label-width="formLabelWidth">
+                <el-input v-model="input2" placeholder=""></el-input>
+              </el-form-item>
+            </el-form>
+            <el-form :model="form">
+              <el-form-item label="供应商" :label-width="formLabelWidth">
+                <el-input
+                  placeholder=""
+                  icon="plus"
+                  v-model="input2"
+                  :on-icon-click="handleIconClick">
+                </el-input>
+              </el-form-item>
+            </el-form>
+            <el-form :model="form">
+              <el-form-item label="销售单价" :label-width="formLabelWidth">
+                <el-input v-model="input2" placeholder=""></el-input>
+              </el-form-item>
+            </el-form>
+            <!--<p>条码</p>-->
+            <!--<el-input v-model="input2" placeholder=""></el-input>-->
+            <!--<p>规格</p>-->
+            <!--<el-input v-model="input2" placeholder=""></el-input>-->
+            <!--<p>品牌</p>-->
+            <!--<el-input v-model="input2" placeholder=""></el-input>-->
+            <!--<p>供应商</p>-->
+            <!--<el-input-->
+              <!--placeholder=""-->
+              <!--icon="plus"-->
+              <!--v-model="input2"-->
+              <!--:on-icon-click="handleIconClick">-->
+            <!--</el-input>-->
+            <!--<p>销售单价</p>-->
+            <!--<el-input v-model="input2" placeholder=""></el-input>-->
           </div>
         </el-col>
       </el-row>
@@ -136,7 +201,7 @@
     </el-dialog>
     <!--2级弹窗-->
     <el-dialog title="商品分类" :visible.sync="secondary_popup" size="tiny">
-      <el-collapse v-model="activeNames" @change="handleChange" accordion>
+      <el-collapse v-model="activeNames" @change="" accordion>
         <el-collapse-item title="棉类" name="1">
           <p>全棉</p>
           <p>高品质棉</p>
@@ -227,7 +292,8 @@
         dialogFormVisible: false,
         secondary_popup: false,
         input2: "",
-        value:""
+        value:"",
+        activeNames:''
       }
     },
     components: {},
