@@ -11,3 +11,40 @@
   padding: 10px 20px 15px;
   text-align: center;
 }
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.top {
+  height: 103px;
+  border-radius: 2px;
+  border: 1px solid #cccccc;
+}
+.fist_top {
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #ccc;
+  margin: 0 12px;
+}
+
+.top .el-form-item__label{
+  padding:0 12px 0 0 ;
+  line-height: 53px ;
+}
+.top .el-input{
+  line-height: 53px ;
+}
+.top .el-form-item{
+  margin:0 0 0 10px ;
+}
+.top .el-input, .top .el-input__inner{
+  width: 120px ;
+}
+.top .big_width {
+  width:300px ;
+}
+.big_width .el-input__inner{
+  width: 300px !important;
+}
+

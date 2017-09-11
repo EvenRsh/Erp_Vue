@@ -6,7 +6,8 @@ import Hello from '@/components/Hello'
  * _import 指向视图views的页面
  * 注意,如果vue-loader@13.0.0以上,require组件后,需要加.default
  */
-const _import = require('./_import_' + process.env.NODE_ENV);
+// const _import = require('./_import_' + process.env.NODE_ENV);
+const _import = require('./_import_development');
 import Layout from "@/views/layout/Layout"
 
 Vue.use(Router);

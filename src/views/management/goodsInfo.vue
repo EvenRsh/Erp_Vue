@@ -175,21 +175,6 @@
                 <el-input v-model="input2" placeholder=""></el-input>
               </el-form-item>
             </el-form>
-            <!--<p>条码</p>-->
-            <!--<el-input v-model="input2" placeholder=""></el-input>-->
-            <!--<p>规格</p>-->
-            <!--<el-input v-model="input2" placeholder=""></el-input>-->
-            <!--<p>品牌</p>-->
-            <!--<el-input v-model="input2" placeholder=""></el-input>-->
-            <!--<p>供应商</p>-->
-            <!--<el-input-->
-              <!--placeholder=""-->
-              <!--icon="plus"-->
-              <!--v-model="input2"-->
-              <!--:on-icon-click="handleIconClick">-->
-            <!--</el-input>-->
-            <!--<p>销售单价</p>-->
-            <!--<el-input v-model="input2" placeholder=""></el-input>-->
           </div>
         </el-col>
       </el-row>
