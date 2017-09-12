@@ -91,7 +91,7 @@
         <el-col :span="24" style="border-bottom: 1px solid #ccc;padding-bottom: 10px;">
           <div class="grid-content bg-purple">
             <el-button type="primary" icon="plus" style="margin-left: 6px;">搜索</el-button>
-            <el-button type="primary">Excel导出</el-button>
+            <el-button type="primary" @click="export2Excel">Excel导出</el-button>
             <div style="display: inline-block; float: right; margin-right: 20px;"><span
               style="display: inline-block;margin-right: 10px;">条码输入</span>
               <el-input v-model="tiaoma" auto-complete="off"></el-input>
@@ -136,28 +136,26 @@
                 <template scope="scope">
                   <el-input v-show="edit" size="small" v-model="scope.row.amount" style="width: 60px;"></el-input>
                   <span v-show="!edit">{{ scope.row.amount }}</span>
-                  <!--<span>{{ scope.row.amount }}</span>-->
                 </template>
               </el-table-column>
               <el-table-column label="原价">
                 <template scope="scope">
-                  <el-input v-show="edit" size="small" v-model="scope.row.original_price" style="width: 60px;"></el-input>
+                  <el-input v-show="edit" size="small" v-model="scope.row.original_price"
+                            style="width: 60px;"></el-input>
                   <span v-show="!edit">{{ scope.row.original_price }}</span>
-                  <!--<span>{{ scope.row.original_price }}</span>-->
                 </template>
               </el-table-column>
               <el-table-column label="折扣">
                 <template scope="scope">
                   <el-input v-show="edit" size="small" v-model="scope.row.discount" style="width: 60px;"></el-input>
                   <span v-show="!edit">{{ scope.row.discount }}</span>
-                  <!--<span>{{ scope.row.discount }}</span>-->
                 </template>
               </el-table-column>
               <el-table-column label="折后金额">
                 <template scope="scope">
-                  <el-input v-show="edit" size="small" v-model="scope.row.discount_price" style="width: 60px;"></el-input>
+                  <el-input v-show="edit" size="small" v-model="scope.row.discount_price"
+                            style="width: 60px;"></el-input>
                   <span v-show="!edit">{{ scope.row.discount_price }}</span>
-                  <!--<span>{{ scope.row.discount_price }}</span>-->
                 </template>
               </el-table-column>
               <el-table-column label="金额">
@@ -172,8 +170,8 @@
         </el-col>
       </el-row>
       <div slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="dialogFormVisible = false">保 存</el-button>
         <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
       </div>
     </el-dialog>
   </div>
@@ -183,7 +181,7 @@
   export default {
     data(){
       return {
-        edit:false,
+        edit: false,
 //          弹窗table数据
         tabledata: [{
           product_id: '123',
@@ -236,10 +234,24 @@
         this.form.name = ''
       },
       cc(){
-        this.edit=true
+        this.edit = true
       },
       dd(){
-        this.edit=false
+        this.edit = false
+      },
+      //     导出Excel
+      export2Excel() {
+        require.ensure([], () => {
+          const {export_json_to_excel} = require('vendor/Export2Excel');
+          const tHeader = ['商品编号', '商品名称', '商品分类','规格','计量单位','数量','原价','折扣','折扣单价','金额'];
+          const filterVal = ['product_id', 'product_name', 'product_category','product_spec','units','amount','original_price','discount','discount_price','product_sum'];
+          const data2 = this.formatJson(filterVal, this.tabledata);
+//          console.log(data2)
+          export_json_to_excel(tHeader, data2, '列表excel');
+        })
+      },
+      formatJson(filterVal, jsonData) {
+        return jsonData.map(v => filterVal.map(j => v[j]))
       }
 
     },
@@ -280,7 +292,6 @@
   .el-input {
     width: 190px;
   }
-
   }
 
 

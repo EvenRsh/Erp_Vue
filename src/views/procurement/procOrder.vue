@@ -2,33 +2,22 @@
   <div>
     <div class="top">
       <el-row class="fist_top">
-        <el-col :span="20">
+        <el-col :span="24">
           <div class="grid-content bg-purple-dark">
             {{$route.name}}
-          </div>
-        </el-col>
-        <el-col :span="4">
-          <div class="grid-content bg-purple-dark" style="line-height: 50px">
-            <el-button type="primary"  icon="plus" @click="bar">新增</el-button>
+            <el-button type="primary" icon="plus" @click="bar" style="float: right;margin-right: 10px;margin-top: 7px;">新增</el-button>
           </div>
         </el-col>
       </el-row>
       <el-row>
-        <el-col :span="5">
+        <el-col :span="24">
           <div class="grid-content bg-purple-dark">
-            <el-form :model="form">
-              <el-form-item label="入库日期" :label-width="formLabelWidth">
-                <el-select v-model="form.region" placeholder="最近一个月">
-                  <el-option label="最近一个月" value="frist"></el-option>
-                  <el-option label="最近两个月" value="second"></el-option>
-                  <el-option label="最近三个月" value="three"></el-option>
-                </el-select>
-              </el-form-item>
-            </el-form>
-          </div>
-        </el-col>
-        <el-col :span="19">
-          <div class="grid-content bg-purple-dark">
+            <span style="    display: inline-block;margin-left: 10px;">入库日期</span>
+            <el-select v-model="month" placeholder="最近一个月">
+              <el-option label="最近一个月" value="frist"></el-option>
+              <el-option label="最近两个月" value="second"></el-option>
+              <el-option label="最近三个月" value="three"></el-option>
+            </el-select>
             <el-input v-model="input" placeholder="请输入内容"></el-input>
             <span>至</span>
             <el-input v-model="input" placeholder="请输入内容"></el-input>
@@ -45,25 +34,30 @@
             <el-button type="primary" @click="dialogFormVisible = true">查询</el-button>
           </div>
         </el-col>
+        <!--<el-col :span="19">-->
+        <!--<div class="grid-content bg-purple-dark">-->
+        <!---->
+        <!--</div>-->
+        <!--</el-col>-->
         <!--<el-col :span="4">-->
-          <!--<div class="grid-content bg-purple-dark">-->
-            <!--&lt;!&ndash;<el-button type="primary" @click="dialogFormVisible = true">新增</el-button>&ndash;&gt;-->
-          <!--</div>-->
+        <!--<div class="grid-content bg-purple-dark">-->
+        <!--&lt;!&ndash;<el-button type="primary" @click="dialogFormVisible = true">新增</el-button>&ndash;&gt;-->
+        <!--</div>-->
         <!--</el-col>-->
       </el-row>
     </div>
-    <!--弹窗-->
-    <order-dialog ref="pop"></order-dialog>
+
 
     <div>
       table数据
     </div>
-  </div>
+    <!--弹窗-->
+    <proc-dialog ref="pop"></proc-dialog>
   </div>
 </template>
 
 <script lang="">
-  import orderDialog from './dialog/orderDialog'
+  import procDialog from './dialog/procDialog'
   export default {
     name: '',
     data() {
@@ -79,6 +73,7 @@
           value: '选项3',
           label: '供应商3'
         }],
+        month:'',
         form: {
           name: '',
           region: '',
@@ -91,18 +86,18 @@
         },
         formLabelWidth: '',
         value: '',
-        input:''
+        input: ''
       }
     },
     components: {
-      orderDialog,
+      procDialog,
     },
     methods: {
 //        触发弹窗弹出
-        bar(){
-            console.log(this.$refs.pop)
-          this.$refs.pop.dialogForm()
-        }
+      bar(){
+//            console.log(this.$refs.pop)
+        this.$refs.pop.dialogForm()
+      }
     },
     mounted() {
 
@@ -112,6 +107,6 @@
   }
 </script>
 
-<style lang="scss" >
+<style lang="scss">
   @import "../../style/index.scss";
 </style>
