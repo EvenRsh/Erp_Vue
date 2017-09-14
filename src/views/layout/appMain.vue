@@ -1,13 +1,13 @@
 <template>
-  <div class="header_top">
-    <el-row>
+  <div >
+    <el-row class="header_top">
       <el-col :span="24">
         <div class="grid-content bg-purple-dark">
           <navbar></navbar>
         </div>
       </el-col>
     </el-row>
-      <router-view></router-view>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -21,7 +21,9 @@
     components: {
       Navbar
     },
-    methods: {},
+    methods: {
+
+    },
     mounted() {
 
     },

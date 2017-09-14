@@ -14,10 +14,17 @@ Vue.use(Router);
 export const routesMap = [
   {
     path: '/',
-    name: '首页',
-    redirect:"management",
+    name: '',
+    redirect:"index",
     component: Layout,
-    noDropdown:true
+    noDropdown:true,
+    children:[
+      {
+        path:"/index",
+        name:"首页",
+        component: _import("layout/index"),
+      }
+    ]
   },
   {
     path:"/management",
@@ -116,5 +123,6 @@ export const routesMap = [
 ]
 
 export default new Router({
+  mode:"history",
   routes: routesMap
 })

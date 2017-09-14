@@ -61,27 +61,31 @@
         let tag = {};
         tag.name = targetName;
         let nextTab
-        let tabs = this.visitedViews
-        for(const [i,v] of tabs.entries()){
+        for(const [i,v] of this.visitedViews.entries()){
           //判断是否只剩最后一个TAB
-          if(v.name == targetName && i !=0 ){
+          if(v.name == targetName){
             tag.path = v.path
             //关闭后优先选取后一个tab,没有就往前选取
-            nextTab = tabs[i + 1] || tabs[i - 1];
+            nextTab = this.visitedViews[i + 1] || this.visitedViews[i - 1];
+            //移除数组 首页不可删
+            if(tag.path != "/index"){
+              this.delVisitedViews(tag);
+            }
             //路由重定向
-            this.$router.push(nextTab.path)
-            break
+            if(nextTab){
+              this.$router.push(nextTab.path);
+            }else{
+              this.$router.push("/");
+            }
           }
         }
-        //移除数组
-        this.delVisitedViews(tag);
       }
     },
     mounted() {
       this.addVisitedViews(this.generateRoute())
     },
     created() {
-
+//      console.log(this.$route)
     },
     watch: {
       $route() {
