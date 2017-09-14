@@ -9,7 +9,7 @@
     <el-tabs  type="card" closable v-model="$route.name" @tab-remove="closeViewTabs" >
 
       <el-tab-pane
-        v-for="tag in Array.from(visitedViews.slice(-6))"
+        v-for="tag in Array.from(visitedViews)"
         :name="tag.name"
         :key="tag.path"
       >

@@ -1,17 +1,27 @@
 <template>
     <div>
-      {{$route.name}}
+      <pro-top @test="pur_t"></pro-top>
+      <return-dialog ref="pur"></return-dialog>
     </div>
 </template>
 
 <script>
-    export default {
+  import proTop from "./components/proTop"
+  import returnDialog from "./dialog/returnDialog"
+  export default {
         data(){
             return {}
         },
-        components: {},
+        components: {
+          proTop,
+          returnDialog,
+        },
         computed: {},
-        methods: {},
+        methods: {
+            pur_t(){
+              this.$refs.pur.ret()
+            }
+        },
     }
 </script>
 
