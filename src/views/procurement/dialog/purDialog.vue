@@ -1,7 +1,7 @@
 <template>
-  <div class="pur">
+  <div>
     <!--一级弹窗-->
-    <el-dialog title="采购订单入库" :visible.sync="dialogFormVisible" size="aa">
+    <el-dialog :modal="isModal" title="采购订单入库" class="pur" :visible.sync="dialogFormVisible" size="aa">
       <el-row>
         <el-col :span="12">
           <div class="grid-content bg-purple-dark">
@@ -66,14 +66,18 @@
       <el-row>
         <el-col :span="24" style="margin-top: 10px">
           <div class="grid-content bg-purple-dark">
-            <el-table ref="singleTable" :data="tabledata" border highlight-current-row
+            <el-table ref="singleTable" :data="tabledata"  highlight-current-row
                       @cell-mouse-enter='cc'
                       @cell-mouse-leave='dd'
                       @current-change=""
                       style="width: 100%">
+              <el-table-column
+                type="selection"
+                width="30">
+              </el-table-column>
               <el-table-column label="商品编号">
                 <template scope="scope">
-                  <el-checkbox label="" name="type"></el-checkbox>
+                  <!--<el-checkbox label="" name="type"></el-checkbox>-->
                   <span style="margin-left: 10px">{{ scope.row.product_id }}</span>
                 </template>
               </el-table-column>
@@ -125,7 +129,126 @@
       </div>
     </el-dialog>
     <!--二级弹窗-->
-
+    <el-dialog :modal="isModal" title="商品订单" class="pur pur_nd" :visible.sync="dialogionc" top="20%">
+      <el-row style="margin-bottom:20px; ">
+        <el-col :span="24">
+          <div class="grid-content bg-purple-dark">
+            <el-input  placeholder="输入关键字" size="small" v-model="keyword"></el-input>
+            <el-button type="primary" @click="">查 询</el-button>
+          </div>
+        </el-col>
+      </el-row>
+      <el-row style="margin-bottom:20px; ">
+        <el-col :span="24">
+          <div class="grid-content bg-purple-dark">
+            <el-table ref="singleTable" :data="tabledata"  highlight-current-row
+                      @current-change=""
+                      style="width: 100%">
+              <el-table-column label="商品编号">
+                <template scope="scope">
+                  <!--<el-checkbox label="" name="type"></el-checkbox>-->
+                  <span style="margin-left: 10px">{{ scope.row.product_id }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="商品名称">
+                <template scope="scope">
+                  <span>{{ scope.row.product_name }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="商品分类">
+                <template scope="scope">
+                  <span>{{ scope.row.product_category }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="规格">
+                <template scope="scope">
+                  <span>{{ scope.row.product_spec }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="计量单位">
+                <template scope="scope">
+                  <span>{{ scope.row.units }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="订单量">
+                <template scope="scope">
+                  <span>{{ scope.row.amount }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="入库数量">
+                <template scope="scope">
+                  <span>{{ scope.row.original_price }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="金额">
+                <template scope="scope">
+                  <span>{{ scope.row.discount }}</span>
+                </template>
+              </el-table-column>
+            </el-table>
+          </div>
+        </el-col>
+      </el-row>
+      <el-row>
+        <el-col :span="24" style="margin-top: 10px">
+          <div class="grid-content bg-purple-dark">
+            <el-table ref="singleTable" :data="tabledata"  highlight-current-row
+                      @current-change=""
+                      style="width: 100%">
+              <el-table-column
+                type="selection"
+                width="30">
+              </el-table-column>
+              <el-table-column label="商品编号">
+                <template scope="scope">
+                  <!--<el-checkbox label="" name="type"></el-checkbox>-->
+                  <span style="margin-left: 10px">{{ scope.row.product_id }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="商品名称">
+                <template scope="scope">
+                  <span>{{ scope.row.product_name }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="商品分类">
+                <template scope="scope">
+                  <span>{{ scope.row.product_category }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="规格">
+                <template scope="scope">
+                  <span>{{ scope.row.product_spec }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="计量单位">
+                <template scope="scope">
+                  <span>{{ scope.row.units }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="订单量">
+                <template scope="scope">
+                  <span>{{ scope.row.amount }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="入库数量">
+                <template scope="scope">
+                  <span>{{ scope.row.original_price }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="金额">
+                <template scope="scope">
+                  <span>{{ scope.row.discount }}</span>
+                </template>
+              </el-table-column>
+            </el-table>
+          </div>
+        </el-col>
+      </el-row>
+      <div slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="dialogionc = false">保 存</el-button>
+        <el-button @click="dialogionc = false">取 消</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -133,6 +256,7 @@
   export default {
     data(){
       return {
+        isModal:false,
         edit: false,
 //          弹窗table数据
         tabledata: [{
@@ -150,6 +274,7 @@
         dialogFormVisible: false,
         dialogionc:false,
         tiaoma: '123123',
+        keyword:'',
         form: {
           name: '321321',
           region: '',
@@ -239,6 +364,16 @@
     width: 190px;
   }
 
+  }
+  .pur_nd{
+  .el-dialog {
+    width: 960px;
+  }
+  .el-dialog__header {
+    border-bottom: none;
+    padding-bottom: 10px;
+    margin: 0 20px;
+  }
   }
 
 
