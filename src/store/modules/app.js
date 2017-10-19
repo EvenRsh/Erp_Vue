@@ -1,3 +1,4 @@
+console.log(process.env.BASE_API)
 const app = {
   state:{
     sidebar:{

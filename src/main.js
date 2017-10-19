@@ -26,6 +26,7 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 Vue.use(VueAxios, axios);
 
+import './mock/index.js';  // 该项目所有请求使用mockjs模拟数据
 
 // 注册组件
 import headerTop from './components/headerTop.vue'

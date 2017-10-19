@@ -34,7 +34,7 @@
 
         },
         created() {
-
+//          console.log(routes)
         },
     }
 </script>

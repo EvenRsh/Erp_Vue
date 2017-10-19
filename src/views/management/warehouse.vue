@@ -4,48 +4,8 @@
       <el-col :span="24">
         <div class="grid-content bg-purple-dark">
           <el-tabs v-show="tabs" v-model="activeName" @tab-click="handleClick">
-            <el-tab-pane label="1号仓库" name="first">
-              <el-table ref="singleTable" :data="tabledata" border highlight-current-row
-                        @current-change=""
-                        style="width: 100%">
-                <el-table-column label="仓库名称">
-                  <template scope="scope">
-                    <span style="margin-left: 10px">{{ scope.row.warehouse_name }}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column label="编号">
-                  <template scope="scope">
-                    <span>{{ scope.row.warehouse_number }}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column label="区域">
-                  <template scope="scope">
-                    <span>{{ scope.row.area }}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column label="地址">
-                  <template scope="scope">
-                    <span>{{ scope.row.address }}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column label="负责人">
-                  <template scope="scope">
-                    <span>{{ scope.row.principal }}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column label="默认">
-                  <template scope="scope">
-                    <span>{{ scope.row.patientia }}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column label="操作">
-                  <template scope="scope">
-                    <i class="el-icon-edit"></i>
-                    <i class="el-icon-delete"></i>
-                    <i class="el-icon-search"></i>
-                  </template>
-                </el-table-column>
-              </el-table>
+            <el-tab-pane label="1号仓库" name="first" >
+              <tab-table ref="tab_data"></tab-table>
             </el-tab-pane>
             <el-tab-pane label="2号仓库" name="second">
               配置管理
@@ -70,6 +30,8 @@
 
 <script lang="">
   import warehouseDialog from './mg_dialog/warehouseDialog'
+  import tabTable from './components/tabTable'
+  import {warehouse} from 'api/http'
   export default {
     name: '',
     data() {
@@ -77,39 +39,47 @@
         tabs: true,
         activeName: 'first',
         tabledata: [{
-          warehouse_name: '1号仓库',
-          warehouse_number: '001',
-          area: '广州天河',
-          address: 'xxxxx号',
-          principal: 'aa',
-          patientia: '是',
-          action: '35',
-        }, {
-          warehouse_name: '2号仓库',
-          warehouse_number: '002',
-          area: '佛山禅城',
-          address: 'xxxxx号',
-          principal: 'bb',
-          patientia: '否',
+//          warehouse_name: '1号仓库',
+//          warehouse_number: '001',
+//          area: '广州天河',
+//          address: 'xxxxx号',
+//          principal: 'aa',
+//          patientia: '是',
+//          action: '35',
+//        }, {
+//          warehouse_name: '2号仓库',
+//          warehouse_number: '002',
+//          area: '佛山禅城',
+//          address: 'xxxxx号',
+//          principal: 'bb',
+//          patientia: '否',
         }],
       }
     },
     components: {
       warehouseDialog,
+      tabTable,
     },
     methods: {
       handleClick(tab, event) {
         console.log(tab, event);
+        this.$refs.tab_data.table_data()
       },
       popwhdialog(){
         this.$refs.whdialog.wh()
-      }
+      },
+//      table_data (){
+//        warehouse().then(res => {
+//          console.log(res.data)
+//          this.tabledata = res.data
+//        })
+//      }
     },
     mounted() {
 
     },
     created() {
-
+//      this.table_data()
     },
   }
 </script>

@@ -14,7 +14,7 @@
       <el-row>
         <el-col :span="24">
           <div class="grid-content bg-purple-dark">
-            <span style="    display: inline-block;margin-left: 10px;">入库日期</span>
+            <span style="display: inline-block;margin-left: 10px;">入库日期</span>
             <el-select v-model="month" placeholder="最近一个月">
               <el-option label="最近一个月" value="frist"></el-option>
               <el-option label="最近两个月" value="second"></el-option>

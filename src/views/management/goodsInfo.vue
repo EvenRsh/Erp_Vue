@@ -12,6 +12,7 @@
       </el-col>
     </el-row>
     <el-row style="margin-top: 10px">
+      <!--树-->
       <el-col :span="2">
         <div class="grid-content bg-purple">
           <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
@@ -121,26 +122,6 @@
                 <el-input v-model="input2" placeholder=""></el-input>
               </el-form-item>
             </el-form>
-            <!--<p>商品名称</p>-->
-            <!--<el-input v-model="input2" placeholder=""></el-input>-->
-            <!--<p>商品分类</p>-->
-            <!--<el-input-->
-              <!--placeholder=""-->
-              <!--icon="plus"-->
-              <!--v-model="input2"-->
-              <!--:on-icon-click="handleIconClick">-->
-            <!--</el-input>-->
-            <!--<p>计算单位</p>-->
-            <!--<el-select v-model="value" placeholder="选择单位">-->
-              <!--<el-option-->
-                <!--v-for="item in options"-->
-                <!--:key="item.value"-->
-                <!--:label="item.label"-->
-                <!--:value="item.value">-->
-              <!--</el-option>-->
-            <!--</el-select>-->
-            <!--<p>采购单价</p>-->
-            <!--<el-input v-model="input2" placeholder=""></el-input>-->
           </div>
         </el-col>
         <el-col :span="12" style="padding-left: 3px">
@@ -207,6 +188,7 @@
 </template>
 
 <script lang="">
+  import { getList , goodsinfo }  from 'api/http';
   export default {
     name: '',
     data() {
@@ -247,20 +229,7 @@
           label: 'label'
         },
 //        表格数据
-        tableData: [{
-          product_id: '121211',
-          product_name: '麻棉混纺小暗格',
-          the_category: '广州XXX纺织品生产公司',
-          unit: '公斤',
-          spec: '规格',
-          brand: '品牌',
-          pur_price: '采购价',
-          sale_price: '销售价',
-          barcode: '条码',
-          Stock_number: '库存数量',
-          provider: '供应商',
-        }],
-
+        tableData:[{}],
         options: [{
           value: '选项1',
           label: '公斤'
@@ -289,16 +258,22 @@
       handleIconClick(ev) {
         console.log(ev);
       },
+
 //      二级弹窗
       handleIconClick(){
         this.secondary_popup = true
+      },
+      table_data() {
+        goodsinfo().then(response => {
+          this.tableData = response.data
+       })
       }
     },
     mounted() {
 
     },
     created() {
-
+      this.table_data();
     },
   }
 </script>

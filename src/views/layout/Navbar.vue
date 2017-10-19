@@ -13,7 +13,7 @@
         :name="tag.name"
         :key="tag.path"
       >
-        <template slot="label"  >
+        <template slot="label" >
           <router-link  :to="tag.path" :key="tag.path" >
             <span>{{tag.name}}</span>
           </router-link>
@@ -21,7 +21,6 @@
       </el-tab-pane>
 
     </el-tabs>
-
   </div>
 </template>
 
@@ -30,7 +29,7 @@
 
   export default {
     name: '',
-    data() {
+    data(){
       return {
       }
     },
@@ -47,6 +46,7 @@
         'addVisitedViews'
       ]),
       generateRoute() {
+//          console.log(this.$route.matched[this.$route.matched.length - 1])
 //            console.log(this.$route.matched[this.$route.matched.length - 1])
         if (this.$route.matched[this.$route.matched.length - 1].name) {
           return this.$route.matched[this.$route.matched.length - 1]

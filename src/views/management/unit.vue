@@ -133,17 +133,4 @@
 
 <style lang="scss">
   @import "src/style/index.scss";
-  /*.headerTop{*/
-    /*height: 60px;*/
-    /*line-height:60px;*/
-    /*border: 1px #ccc solid;*/
-    /*border-radius: 5px;*/
-  /*}*/
-  /*.el-dialog{*/
-    /*width: 500px;*/
-  /*}*/
-  /*.el-dialog__footer {*/
-    /*padding: 10px 20px 15px;*/
-    /*text-align: center;*/
-  /*}*/
 </style>
