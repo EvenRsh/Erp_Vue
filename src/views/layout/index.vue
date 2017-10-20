@@ -16,7 +16,7 @@
 
         },
         created() {
-
+          console.log(localStorage.getItem('a'))
         },
     }
 </script>

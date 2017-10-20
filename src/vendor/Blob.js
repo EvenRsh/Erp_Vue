@@ -1,19 +1,4 @@
-/* eslint-disable */
-/* Blob.js
- * A Blob implementation.
- * 2014-05-27
- *
- * By Eli Grey, http://eligrey.com
- * By Devin Samarin, https://github.com/eboyjr
- * License: X11/MIT
- *   See LICENSE.md
- */
 
-/*global self, unescape */
-/*jslint bitwise: true, regexp: true, confusion: true, es5: true, vars: true, white: true,
- plusplus: true */
-
-/*! @source http://purl.eligrey.com/github/Blob.js/blob/master/Blob.js */
 
 (function (view) {
     "use strict";

@@ -34,16 +34,6 @@
             <el-button type="primary" @click="dialogFormVisible = true">查询</el-button>
           </div>
         </el-col>
-        <!--<el-col :span="19">-->
-        <!--<div class="grid-content bg-purple-dark">-->
-        <!---->
-        <!--</div>-->
-        <!--</el-col>-->
-        <!--<el-col :span="4">-->
-        <!--<div class="grid-content bg-purple-dark">-->
-        <!--&lt;!&ndash;<el-button type="primary" @click="dialogFormVisible = true">新增</el-button>&ndash;&gt;-->
-        <!--</div>-->
-        <!--</el-col>-->
       </el-row>
     </div>
 

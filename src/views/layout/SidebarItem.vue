@@ -2,7 +2,7 @@
     <div class="menu-wrapper">
       <div style="background-color: #ff9827; height: 50px;text-align: center;line-height: 50px;">ERP</div>
       <template v-for="item in routes">
-        <el-submenu :index="item.path" v-if="!item.noDropdown">
+        <el-submenu :index="item.path" v-if="!item.noDropdown&&!item.hidden">
           <template slot="title">{{item.name}}</template>
           <template v-if="item.children" v-for="child in item.children">
             <sidebar-item class='nest-menu' v-if='child.children' :routes='[child]'> </sidebar-item>
@@ -34,7 +34,7 @@
 
         },
         created() {
-//          console.log(routes)
+          console.log(this.routes)
         },
     }
 </script>
